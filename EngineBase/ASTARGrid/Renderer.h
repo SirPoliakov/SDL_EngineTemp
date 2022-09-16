@@ -15,6 +15,9 @@ public:
 	void beginDraw();
 	void drawRect(Rectangle& rect);
 	void drawRectRed(Rectangle& rect);
+	void drawRectGrey(Rectangle& rect);
+	void drawRectBrown(Rectangle& rect);
+	void drawRectWhite(Rectangle& rect);
 	void endDraw();
 	void close();
 

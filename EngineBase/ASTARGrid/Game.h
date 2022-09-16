@@ -1,6 +1,9 @@
 #pragma once
 #include "Window.h"
 #include "Renderer.h"
+#include <vector> 
+
+using namespace std;
 
 class Game
 {
@@ -23,8 +26,17 @@ private:
 		bottomWall(Rectangle()),
 		rightWall(Rectangle()),
 		leftWall(Rectangle()),
-		wallThickness(10)
-	{}
+		wallThickness(10),
+		SQUARE_SIDE(35),
+		V_GAP(4),
+		ROWS(13),
+		COLS(13)
+	{
+		for (int i = 0; i < COLS*ROWS; i++)
+		{
+			grid.push_back(Rectangle(0.0f, 0.0f, SQUARE_SIDE, SQUARE_SIDE, Grey));
+		}
+	}
 		
 
 
@@ -47,4 +59,9 @@ private:
 	Rectangle leftWall;
 	Rectangle rightWall;
 	const float wallThickness = 10;
+	vector<Rectangle> grid;
+	const float SQUARE_SIDE = 35;
+	const float V_GAP = 4;
+	const int COLS = 13;
+	const int ROWS = 13;
 };

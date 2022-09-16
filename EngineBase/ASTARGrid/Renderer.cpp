@@ -29,14 +29,36 @@ void Renderer::endDraw()
 
 void Renderer::drawRect(Rectangle& rect)
 {
-	SDL_SetRenderDrawColor(SDLRenderer, 255, 255, 255, 255);
-	SDL_Rect SDLRect = rect.toSDLRect();
-	SDL_RenderFillRect(SDLRenderer, &SDLRect);
+	if (rect.color == Red) { drawRectRed(rect); }
+	if (rect.color == White) { drawRectWhite(rect); }
+	if (rect.color == Grey) { drawRectGrey(rect); }
+	if (rect.color == Brown) { drawRectBrown(rect); }
 }
 
 void Renderer::drawRectRed(Rectangle& rect)
 {
 	SDL_SetRenderDrawColor(SDLRenderer, 255, 0, 0, 255);
+	SDL_Rect SDLRect = rect.toSDLRect();
+	SDL_RenderFillRect(SDLRenderer, &SDLRect);
+}
+
+void Renderer::drawRectGrey(Rectangle& rect)
+{
+	SDL_SetRenderDrawColor(SDLRenderer, 80, 80, 80, 255);
+	SDL_Rect SDLRect = rect.toSDLRect();
+	SDL_RenderFillRect(SDLRenderer, &SDLRect);
+}
+
+void Renderer::drawRectBrown(Rectangle& rect)
+{
+	SDL_SetRenderDrawColor(SDLRenderer, 139, 69, 19, 255);
+	SDL_Rect SDLRect = rect.toSDLRect();
+	SDL_RenderFillRect(SDLRenderer, &SDLRect);
+}
+
+void Renderer::drawRectWhite(Rectangle& rect)
+{
+	SDL_SetRenderDrawColor(SDLRenderer, 255, 255, 255, 255);
 	SDL_Rect SDLRect = rect.toSDLRect();
 	SDL_RenderFillRect(SDLRenderer, &SDLRect);
 }
